@@ -1,0 +1,37 @@
+﻿@model Opticron.Models.Article
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="col-md-8">
+    <h4>Details: Category</h4>
+    <hr />
+    <table class="BlueGreen">
+        <tr><th>Id</th><td>@Model.Id</td></tr>
+        <tr><th>Title</th><td>@Model.Title</td></tr>
+        <tr><th>Description</th><td>@Model.Description</td></tr>
+        <tr><th>Call To Action</th><td>@Model.CallToAction</td></tr>
+        <tr>
+            <th>Thumbnail</th>
+            <td>
+                @if (!string.IsNullOrEmpty(Model.Thumbnail))
+                {
+                    <img src="@Model.Thumbnail" alt="Thumbnail" style="max-width: 200px; max-height: 200px;" />
+                }
+                else
+                {
+                    <p>No thumbnail available.</p>
+                }
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+
+<label class="col-sm-3 col-form-label"></label>
+<div class="col-sm-9">
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="button">Edit</a>
+    <a asp-action="Admin" class="alert button">Back to List</a>
+</div>

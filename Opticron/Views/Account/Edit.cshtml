@@ -1,0 +1,63 @@
+﻿@model Opticron.Models.Article
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4>Edit: Article</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group row">
+                <label asp-for="Title" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Title" class="form-control" id="Title" type="text" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Description" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <textarea asp-for="Description" class="form-control" id="Description" rows="4"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="CallToAction" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="CallToAction" class="form-control" id="CallToAction" type="text" />
+                    <span asp-validation-for="CallToAction" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Thumbnail" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Thumbnail" class="form-control" id="Thumbnail" type="text" />
+                    <span asp-validation-for="Thumbnail" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input type="submit" value="Update" class="button" />
+                    <a asp-action="Admin" class="alert button">Back to List</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

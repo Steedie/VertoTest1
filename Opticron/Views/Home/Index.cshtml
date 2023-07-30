@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style type="text/css">
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .slider {
+        width: 50%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+        margin: 0px 20px;
+    }
+
+        .slick-slide img {
+            width: 100%;
+        }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
+    }
+
+
+    .slick-slide {
+        transition: all ease-in-out .3s;
+        opacity: .2;
+    }
+
+    .slick-active {
+        opacity: .5;
+    }
+
+    .slick-current {
+        opacity: 1;
+    }
+</style>
+
+<div class="carousel-container">
+    <div class="carousel">
+        <div><img src="~/Images/914_1920x400.jpg" alt="Slider Image 1"></div>
+        <div><img src="~/Images/926_1920x400.jpg" alt="Slider Image 2"></div>
+        <!-- Add more images as needed -->
+    </div>
+</div>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
