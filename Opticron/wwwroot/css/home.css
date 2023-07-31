@@ -37,11 +37,11 @@
 
 .slick-slide {
     transition: all ease-in-out .3s;
-    opacity: .2;
+    opacity: .7;
 }
 
 .slick-active {
-    opacity: .5;
+    opacity: .8;
 }
 
 .slick-current {
@@ -183,11 +183,12 @@
 .category-item {
     text-align: center;
     padding: 10px;
+    position: relative;
 }
 
     .category-item img {
-        max-width: 256px;
-        max-height: 256px;
+        height: 175px;
+        width: 350px;
         display: block;
         margin: 0 auto;
     }
