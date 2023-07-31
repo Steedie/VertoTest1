@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Admin";
+}
+
+<h2>Admin Dashboard</h2>
+<p>You are logged in as an admin. Please select which database you would like to edit.</p>
+
+<p>
+    <a class="button" asp-action="Index" asp-controller="Article">Edit Articles</a>
+    <a class="button" asp-action="Index" asp-controller="SpecialOffer">Edit Special Offers</a>
+    <a class="button" asp-action="Index" asp-controller="Category">Edit Categories</a>
+    <a id="signOutButton" class="alert button" href="#">Sign Out</a>
+</p>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#signOutButton").click(function (event) {
+            event.preventDefault();
+            $.ajax({
+                url: "@Url.Action("AdminSignOut", "Admin")",
+                type: "POST",
+                success: function (data) {
+                    window.location.href = "@Url.Action("Login", "Account")";
+                },
+                error: function () {
+                    alert("Error occurred while signing out.");
+                }
+            });
+        });
+    });
+</script>

@@ -2,12 +2,15 @@
 
 namespace Opticron.Models
 {
-    public class SpecialOffer
+    public class Category
     {
         public Int64 Id { get; set; }
+
+        [Display(Name = "Category Name")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         [Required]
-        public string Heading { get; set; }
-        public string Subheading { get; set; }
+        public string Name { get; set; }
+
         public string Thumbnail { get; set; }
     }
 }

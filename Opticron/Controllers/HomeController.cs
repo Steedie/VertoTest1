@@ -1,21 +1,37 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Opticron.Data;
 using Opticron.Models;
 using System.Diagnostics;
 
 namespace Opticron.Controllers
 {
+    public class HomeViewModel
+    {
+        public List<Article> Articles { get; set; }
+        public List<SpecialOffer> SpecialOffers{ get; set; }
+        public List<Category> Categories{ get; set; }
+    }
+
+
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public ActionResult Index()
         {
-            return View();
+            var model = new HomeViewModel
+            {
+                Articles = _context.Articles.ToList(),
+                SpecialOffers = _context.SpecialOffers.ToList(),
+                Categories = _context.Categories.ToList()
+            };
+
+            return View(model); // Pass the ViewModel to the view
         }
 
         public IActionResult Privacy()

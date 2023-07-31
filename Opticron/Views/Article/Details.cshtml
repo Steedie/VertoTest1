@@ -5,7 +5,7 @@
 }
 
 <div class="col-md-8">
-    <h4>Details: Category</h4>
+    <h4>Details: Article</h4>
     <hr />
     <table class="BlueGreen">
         <tr><th>Id</th><td>@Model.Id</td></tr>
@@ -33,5 +33,5 @@
 <label class="col-sm-3 col-form-label"></label>
 <div class="col-sm-9">
     <a asp-action="Edit" asp-route-id="@Model?.Id" class="button">Edit</a>
-    <a asp-action="Admin" class="alert button">Back to List</a>
+    <a asp-action="Index" class="secondary button">Back to List</a>
 </div>

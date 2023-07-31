@@ -1,55 +1,103 @@
-﻿@{
+﻿@model Opticron.Controllers.HomeViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<style type="text/css">
-
-    * {
-        box-sizing: border-box;
-    }
-
-    .slider {
-        width: 50%;
-        margin: 100px auto;
-    }
-
-    .slick-slide {
-        margin: 0px 20px;
-    }
-
-        .slick-slide img {
-            width: 100%;
-        }
-
-    .slick-prev:before,
-    .slick-next:before {
-        color: black;
-    }
-
-
-    .slick-slide {
-        transition: all ease-in-out .3s;
-        opacity: .2;
-    }
-
-    .slick-active {
-        opacity: .5;
-    }
-
-    .slick-current {
-        opacity: 1;
-    }
-</style>
+<link rel="stylesheet" type="text/css" href="~/css/home.css" />
 
 <div class="carousel-container">
-    <div class="carousel">
+    <div class="wide-carousel">
         <div><img src="~/Images/914_1920x400.jpg" alt="Slider Image 1"></div>
         <div><img src="~/Images/926_1920x400.jpg" alt="Slider Image 2"></div>
-        <!-- Add more images as needed -->
     </div>
 </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<!-- Display Articles -->
+<div class="articles-container">
+    <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-4">
+        @foreach (var article in Model.Articles.Take(4))
+        {
+            <div class="cell">
+                <h2>@article.Title</h2>
+                <img src="@article.Thumbnail" alt="@article.Title" />
+                <p class="article-description">@article.Description</p>
+                <button class="green-button-2">@article.CallToAction</button>
+            </div>
+        }
+    </div>
 </div>
+
+<div class="spacer"></div>
+
+<!-- Display Special Offers -->
+<div class="special-offers-container">
+    <h3>Special Offers</h3>
+    <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-4">
+        @foreach (var offer in Model.SpecialOffers.Take(3))
+        {
+            <div class="special-offer-box">
+                <img src="@offer.Thumbnail" alt="@offer.Heading" class="special-offer-thumbnail">
+                <div class="special-offer-heading">@offer.Heading</div>
+                <div class="special-offer-subheading">@offer.Subheading</div>
+            </div>
+        }
+    </div>
+    @*<a href="#" class="button">View All Offers</a>*@
+    <div class="green-button-1-container">
+        <button class="green-button-1">View All Offers</button>
+    </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- Product Categories -->
+<div class="categories-container">
+    <h3>Product Categories</h3>
+    <div class="new-carousel">
+        @foreach (var category in Model.Categories)
+        {
+            <div class="category-item">
+                <img src="@category.Thumbnail" alt="@category.Name">
+                <div>@category.Name</div>
+            </div>
+        }
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.new-carousel').slick({
+            centerMode: true,
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+            nextArrow: '<button type="button" class="slick-next">Next</button>',
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+    });
+</script>

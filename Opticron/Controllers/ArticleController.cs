@@ -7,12 +7,6 @@ namespace Opticron.Controllers
 {
     public class ArticleController : Controller
     {
-        private readonly ApplicationDbContext _context;
-
-        public ArticleController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
 
         // GET: Articles
         /*public async Task<IActionResult> Admin()
@@ -23,6 +17,132 @@ namespace Opticron.Controllers
 
             return View(_Articles);
         }*/
+
+
+        private readonly ApplicationDbContext _context;
+
+        public ArticleController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<ActionResult> Index()
+        {
+            var articles = await _context.Articles.ToListAsync();
+            return View(articles);
+        }
+
+        public async Task<IActionResult> Details(long? id)
+        {
+            if (id == null || _context.Articles == null)
+            {
+                return NotFound();
+            }
+
+            var article = await _context.Articles
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (article == null)
+            {
+                return NotFound();
+            }
+
+            return View(article);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,CallToAction,Thumbnail")] Article article)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(article);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(article);
+        }
+
+
+        public async Task<IActionResult> Edit(long? id)
+        {
+            if (id == null || _context.Articles == null)
+            {
+                return NotFound();
+            }
+
+            var article = await _context.Articles.FindAsync(id);
+            if (article == null)
+            {
+                return NotFound();
+            }
+            return View(article);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(long id, [Bind("Id,Title,Description,CallToAction,Thumbnail")] Article article)
+        {
+            if (id != article.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(article);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CategoryExists(article.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(article);
+        }
+
+
+
+        [HttpDelete]
+        public async Task<JsonResult> Delete(Int64 id)
+        {
+            try
+            {
+                var _Articles = await _context.Articles.FindAsync(id);
+
+                if (_Articles != null)
+                {
+                    _context.Articles.Remove(_Articles);
+                }
+                await _context.SaveChangesAsync();
+                return new JsonResult(_Articles);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private bool CategoryExists(long id)
+        {
+            return (_context.Articles?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
 
 
         private async Task CreateTestData()

@@ -1,4 +1,4 @@
-﻿@model Opticron.Models.Article
+﻿@model Opticron.Models.SpecialOffer
 
 
 @{
@@ -14,24 +14,17 @@
     <dl class="row">
 
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Heading)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Title)
+            @Html.DisplayFor(model => model.Heading)
         </dd>
 
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.Subheading)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CallToAction)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CallToAction)
+            @Html.DisplayFor(model => model.Subheading)
         </dd>
 
         <dt class="col-sm-2">
@@ -45,7 +38,7 @@
 
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Admin">Back to List</a>
+        <input type="submit" value="Delete" class="alert button" /> |
+        <a asp-action="Index">Back to List</a>
     </form>
 </div>

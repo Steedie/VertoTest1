@@ -14,5 +14,6 @@ namespace Opticron.Data
 
         public DbSet<Article> Articles { get; set; }
         public DbSet<SpecialOffer> SpecialOffers { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

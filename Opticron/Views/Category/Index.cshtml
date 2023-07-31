@@ -1,11 +1,17 @@
-﻿@model IEnumerable<Opticron.Models.Article>
+﻿@model IEnumerable<Opticron.Models.Category>
 
 @{
-    ViewData["Title"] = "Admin";
+    ViewData["Title"] = "Category";
 }
 
-<h2>This is the admin page!</h2>
-<p>Congratulations! You have successfully logged in.</p>
+<h2>Edit Categories</h2>
+<p>You are logged in as an admin. Please select which database you would like to edit.</p>
+
+<p>
+    <a class="secondary button" asp-action="Index" asp-controller="Admin">Dashboard</a>
+    <a class="button" asp-action="Index" asp-controller="Article">Edit Articles</a>
+    <a class="button" asp-action="Index" asp-controller="SpecialOffer">Edit Special Offers</a>
+</p>
 
 @if (Model == null)
 {
@@ -13,17 +19,14 @@
 }
 else
 {
-
     <p>
-        <a class="success button" asp-action="Create">Add New</a>
+        <a class="success button" asp-action="Create">Add New Category</a>
     </p>
-    <table id="tblArticles" class="BlueGreen" border="1">
+    <table id="tblCategories" class="BlueGreen" border="1">
         <thead>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.Id)</th>
-                <th>@Html.DisplayNameFor(model => model.Title)</th>
-                <th>@Html.DisplayNameFor(model => model.Description)</th>
-                <th>@Html.DisplayNameFor(model => model.CallToAction)</th>
+                @*<th>@Html.DisplayNameFor(model => model.Id)</th>*@
+                <th>@Html.DisplayNameFor(model => model.Name)</th>
                 <th>Thumbnail</th>
                 <th>Actions</th>
             </tr>
@@ -32,10 +35,8 @@ else
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                    <td>@Html.DisplayFor(modelItem => item.CallToAction)</td>
+                    @*<td>@Html.DisplayFor(modelItem => item.Id)</td>*@
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
                     <td>
                         @if (!string.IsNullOrEmpty(item.Thumbnail))
                         {
@@ -48,7 +49,7 @@ else
                     </td>
 
                     <td>
-                        <a class="secondary button" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="button" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                         <a class="button" asp-action="Details" asp-route-id="@item.Id">Details</a>
                         <a class="alert button" onclick="DeleteArticle('@item.Id')">Delete</a>
                     </td>
@@ -77,10 +78,10 @@ else
                 if (result.value) {
                     $.ajax({
                         type: "DELETE",
-                        url: "/Account/Delete?id=" + id,
+                        url: "/Category/Delete?id=" + id,
                         success: function (result) {
                             console.log(result);
-                            var message = "Article has been deleted successfully. Article ID: " + result.id;
+                            var message = "Category has been deleted successfully. Article ID: " + result.id;
                             Swal.fire({
                                 title: message,
                                 icon: 'info',

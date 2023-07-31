@@ -8,6 +8,11 @@ html {
   }
 }
 
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -51,4 +56,41 @@ form.example::after {
     content: "";
     clear: both;
     display: table;
+}
+
+
+
+
+
+.footer {
+    background-color: #bbbdbf;
+    padding-top: 30px;
+    padding-bottom: 24px;
+    margin-bottom: -250px;
+    color: #f3f3f3;
+    text-align: center;
+}
+
+.footer-contact {
+    float: right;
+    text-align: center;
+    font-size: 26px;
+}
+
+.footer-address {
+    float: left;
+    text-align: left;
+    font-size: 14px;
+}
+
+.footer-options {
+    float: left;
+    text-align: left;
+    font-size: 12px;
+}
+
+.social-icons {
+    float: right;
+    color: white;
+    font-size: 30px;
 }

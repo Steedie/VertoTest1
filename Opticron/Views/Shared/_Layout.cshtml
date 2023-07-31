@@ -11,12 +11,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Opticron.styles.css" asp-append-version="true" />
 
-    
-
 </head>
+
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -25,7 +27,6 @@
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <img src="~/Images/header-logo.png" alt="Opticron" height="30">
                 </a>
-                <!-- Toggle button for collapsed menu (if needed) -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -33,12 +34,6 @@
                 <!-- Navigation links -->
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <!--<li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Our Products</a>
                         </li>
@@ -50,9 +45,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">My Opticron</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Admin">Test Admin</a>
                         </li>
                     </ul>
                 </div>
@@ -74,11 +66,29 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer">
         <div class="container">
-            &copy; 2023 - Opticron - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="footer-contact">
+                <p>call <b><span style="font-size: 32px;">01582 726522</span></b><br><span style="font-size: 18px;"><b>email</b> us sales@opticron.co.uk</span></p>
+
+            </div>
+            <div>
+                <p class="footer-address">Opticron Unit 21, Titan Court, Laporte Way, Luton, Bedfordshire, LU4 BEF, UK</p>
+                <br>
+                <p class="footer-options">Site map / Terms / Privacy Policy / Site By Josh Steede For Verto</p>
+                <br>
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i> |
+                    <i class="fab fa-twitter"></i> |
+                    <i class="fab fa-linkedin-in"></i> |
+                    <i class="fab fa-youtube"></i> |
+                    <i class="fab fa-google-plus-g"></i>
+                </div>
+            </div>
+            
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -87,7 +97,7 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('.carousel').slick({
+            $('.wide-carousel').slick({
                 autoplay: true,
                 autoplaySpeed: 3000,
                 dots: true,

@@ -7,6 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ApplicationDbContext>();
 
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.Cookie.Name = "Opticron.Session";
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Set the session timeout
+});
+
 // MSSQL DB Conn
 string connString = builder.Configuration.GetConnectionString("connMSSQLNoCred");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connString));
@@ -25,6 +32,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 
