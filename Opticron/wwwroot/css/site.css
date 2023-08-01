@@ -94,3 +94,62 @@ form.example::after {
     color: white;
     font-size: 30px;
 }
+
+.dashboard-button {
+    background-color: #00a261;
+    color: white;
+    padding: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .dashboard-button:hover {
+        background-color: #00884f;
+        color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+.dashboard-button-dashboard {
+    background-color: grey;
+    color: white;
+    padding: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .dashboard-button-dashboard:hover {
+        background-color: dimgrey;
+        color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+.dashboard-button-addnew {
+    background-color: #00a261;
+    color: white;
+    padding: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    font-weight: bold;
+}
+
+    .dashboard-button-addnew:hover {
+        background-color: #00884f;
+        color: yellow;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+
+.dashboard-button-delete {
+    background-color: #d50000;
+    color: white;
+    padding: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .dashboard-button-delete:hover {
+        background-color: #a40000;
+        color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .dashboard-buttons-holder{
+        padding: 25px;
+    }

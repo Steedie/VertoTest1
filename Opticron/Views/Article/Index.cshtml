@@ -10,11 +10,16 @@
             <h2>Edit Articles</h2>
             <p>You are logged in as an admin. Please select which database you would like to edit.</p>
 
-            <div class="button-group">
-                <a class="secondary button" asp-action="Index" asp-controller="Admin">Dashboard</a>
-                <a class="button" asp-action="Index" asp-controller="SpecialOffer">Edit Special Offers</a>
-                <a class="button" asp-action="Index" asp-controller="Category">Edit Categories</a>
+            <div class="grid-x grid-margin-x grid-margin-y">
+                <div class="dashboard-buttons-holder">
+                    <p>
+                        <a class="dashboard-button-dashboard" asp-action="Index" asp-controller="Admin">Dashboard</a>
+                        <a class="dashboard-button" asp-action="Index" asp-controller="SpecialOffer">Edit Special Offers</a>
+                        <a class="dashboard-button" asp-action="Index" asp-controller="Category">Edit Categories</a>
+                    </p>
+                </div>
             </div>
+
         </div>
     </div>
 
@@ -24,9 +29,13 @@
 }
 else
 {
-    <p>
-        <a class="success button" asp-action="Create">Add New Article</a>
-    </p>
+        <div class="grid-x grid-margin-x grid-margin-y">
+            <div class="dashboard-buttons-holder">
+                <p>
+                    <a class="dashboard-button-addnew" asp-action="Create">+ Add New Article</a>
+                </p>
+            </div>
+        </div>
     <table id="tblArticles" class="BlueGreen" border="1">
         <thead>
             <tr>

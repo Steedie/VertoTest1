@@ -5,12 +5,16 @@
 <h2>Admin Dashboard</h2>
 <p>You are logged in as an admin. Please select which database you would like to edit.</p>
 
-<p>
-    <a class="button" asp-action="Index" asp-controller="Article">Edit Articles</a>
-    <a class="button" asp-action="Index" asp-controller="SpecialOffer">Edit Special Offers</a>
-    <a class="button" asp-action="Index" asp-controller="Category">Edit Categories</a>
-    <a id="signOutButton" class="alert button" href="#">Sign Out</a>
-</p>
+<div class="grid-x grid-margin-x grid-margin-y">
+    <div class="dashboard-buttons-holder">
+        <p>
+            <a class="dashboard-button" asp-action="Index" asp-controller="Article">Edit Articles</a>
+            <a class="dashboard-button" asp-action="Index" asp-controller="SpecialOffer">Edit Special Offers</a>
+            <a class="dashboard-button" asp-action="Index" asp-controller="Category">Edit Categories</a>
+            <a id="signOutButton" class="dashboard-button-delete" href="#">Sign Out</a>
+        </p>
+    </div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
