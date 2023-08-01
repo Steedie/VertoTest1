@@ -14,8 +14,7 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(30); // Set the session timeout
 });
 
-// MSSQL DB Conn
-string connString = builder.Configuration.GetConnectionString("connMSSQLNoCred");
+string connString = builder.Configuration.GetConnectionString("azuredb");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connString));
 
 var app = builder.Build();

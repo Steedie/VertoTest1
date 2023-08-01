@@ -9,7 +9,6 @@ namespace Opticron.Controllers
     {
         public IActionResult Index()
         {
-
             // Check if the user is authenticated as admin using session
             var isAdmin = HttpContext.Session.GetString("IsAdmin");
             if (isAdmin != "true")

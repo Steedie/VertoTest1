@@ -28,6 +28,14 @@ namespace Opticron.Controllers
 
         public async Task<ActionResult> Index()
         {
+            // Check if the user is authenticated as admin using session
+            var isAdmin = HttpContext.Session.GetString("IsAdmin");
+            if (isAdmin != "true")
+            {
+                // Redirect to the login page or display an access denied message.
+                return RedirectToAction("Login", "Account");
+            }
+
             var articles = await _context.Articles.ToListAsync();
             return View(articles);
         }

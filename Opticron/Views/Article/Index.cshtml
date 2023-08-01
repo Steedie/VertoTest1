@@ -8,7 +8,7 @@
     <div class="grid-x grid-margin-x">
         <div class="cell">
             <h2>Edit Articles</h2>
-            <p>You are logged in as an admin. Please select which database you would like to edit.</p>
+            <p>You are logged in as an admin. Please select what you would like to edit.</p>
 
             <div class="grid-x grid-margin-x grid-margin-y">
                 <div class="dashboard-buttons-holder">
@@ -39,7 +39,6 @@ else
     <table id="tblArticles" class="BlueGreen" border="1">
         <thead>
             <tr>
-                @*<th>@Html.DisplayNameFor(model => model.Id)</th>*@
                 <th>@Html.DisplayNameFor(model => model.Title)</th>
                 <th>@Html.DisplayNameFor(model => model.Description)</th>
                 <th>@Html.DisplayNameFor(model => model.CallToAction)</th>
@@ -51,7 +50,6 @@ else
             @foreach (var item in Model)
             {
                 <tr>
-                    @*<td>@Html.DisplayFor(modelItem => item.Id)</td>*@
                     <td>@Html.DisplayFor(modelItem => item.Title)</td>
                     <td>@(item.Description.Length <= 30 ? item.Description : item.Description.Substring(0, 30) + "...")</td>
                     <td>@Html.DisplayFor(modelItem => item.CallToAction)</td>

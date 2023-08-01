@@ -5,7 +5,7 @@
 }
 
 <h2>Edit Categories</h2>
-<p>You are logged in as an admin. Please select which database you would like to edit.</p>
+<p>You are logged in as an admin. Please select what you would like to edit.</p>
 
 <div class="grid-x grid-margin-x grid-margin-y">
     <div class="dashboard-buttons-holder">
@@ -26,14 +26,13 @@ else
     <div class="grid-x grid-margin-x grid-margin-y">
         <div class="dashboard-buttons-holder">
             <p>
-                <a class="dashboard-button-addnew" asp-action="Create">+ Add New Article</a>
+                <a class="dashboard-button-addnew" asp-action="Create">+ Add New Category</a>
             </p>
         </div>
     </div>
     <table id="tblCategories" class="BlueGreen" border="1">
         <thead>
             <tr>
-                @*<th>@Html.DisplayNameFor(model => model.Id)</th>*@
                 <th>@Html.DisplayNameFor(model => model.Name)</th>
                 <th>Thumbnail</th>
                 <th>Actions</th>
@@ -43,7 +42,6 @@ else
             @foreach (var item in Model)
             {
                 <tr>
-                    @*<td>@Html.DisplayFor(modelItem => item.Id)</td>*@
                     <td>@Html.DisplayFor(modelItem => item.Name)</td>
                     <td>
                         @if (!string.IsNullOrEmpty(item.Thumbnail))
