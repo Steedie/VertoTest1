@@ -4,14 +4,19 @@
     ViewData["Title"] = "Article";
 }
 
-<h2>Edit Articles</h2>
-<p>You are logged in as an admin. Please select which database you would like to edit.</p>
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+        <div class="cell">
+            <h2>Edit Articles</h2>
+            <p>You are logged in as an admin. Please select which database you would like to edit.</p>
 
-<p>
-    <a class="secondary button" asp-action="Index" asp-controller="Admin">Dashboard</a>
-    <a class="button" asp-action="Index" asp-controller="SpecialOffer">Edit Special Offers</a>
-    <a class="button" asp-action="Index" asp-controller="Category">Edit Categories</a>
-</p>
+            <div class="button-group">
+                <a class="secondary button" asp-action="Index" asp-controller="Admin">Dashboard</a>
+                <a class="button" asp-action="Index" asp-controller="SpecialOffer">Edit Special Offers</a>
+                <a class="button" asp-action="Index" asp-controller="Category">Edit Categories</a>
+            </div>
+        </div>
+    </div>
 
 @if (Model == null)
 {
